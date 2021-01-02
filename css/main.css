@@ -1,0 +1,15 @@
+.content {
+    width: 65%;
+    margin: 0 auto 0 auto; 
+    text-align: center
+} 
+
+.title {
+    margin-top: 20px; 
+    font-family: 'Shrikhand', cursive;
+    text-align: center; 
+}
+
+#stopButton {
+    display: none
+}
