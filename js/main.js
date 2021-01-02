@@ -1,3 +1,4 @@
+
 function xhrSuccess() {
     this.callback.apply(this, this.arguments);
 }
@@ -60,9 +61,6 @@ function createChart() {
                     display: true,
                     ticks: {
                         beginAtZero: true,
-                        steps: 50,
-                        stepValue: 2,
-                        max: 1.2,
                     }
                 }]
             }
@@ -70,7 +68,7 @@ function createChart() {
         data: {
             labels: labels,
             datasets: [{
-                label: 'Detected',
+                label: 'Level',
                 data: data,
                 backgroundColor: "rgba(153,255,51,0.6)"
             }]
@@ -95,11 +93,17 @@ function createTable() {
 }
 
 function orderToCreateTable() {
-    getRecords("https://sound-records.herokuapp.com/records", createTable);
+    getRecords("https://sound-records.herokuapp.com/records", createTable)
+    setInterval(function() {
+        getRecords("https://sound-records.herokuapp.com/records", createTable)
+    }, 5000)
 }
 
 function orderToCreateChart() {
-    getRecords("https://sound-records.herokuapp.com/records", createChart);
+    getRecords("https://sound-records.herokuapp.com/records", createChart)
+    setInterval(function() {
+        getRecords("https://sound-records.herokuapp.com/records", createChart)
+    }, 5000)
 }
 
 function orderToDeleteRecord(id) {
