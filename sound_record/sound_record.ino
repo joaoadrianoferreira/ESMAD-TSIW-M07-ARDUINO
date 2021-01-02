@@ -3,8 +3,8 @@
 #include <ESP8266HTTPClient.h>
 Ticker flipper;
 
-const char* ssid = "Vodafone-048160";
-const char* password = "t6Vw9XqR5Y";
+const char* ssid = "sdfsdddf";
+const char* password = "sdadasd";
 
 const char* host = "www.google.com";
 
