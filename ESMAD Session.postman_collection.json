@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "3de8b4d2-3a51-405e-937b-b3105c3ce67b",
+		"name": "ESMAD Session",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List All Records",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/records/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"records",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Record",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/records/5bf80ff213a9843710b66c1f",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"records",
+						"5bf80ff213a9843710b66c1f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Record",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"value\": 19.5\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/records",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"records"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Record",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"value\": 19.5\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/records/5bf81112464a7e22ac66bc14",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"records",
+						"5bf81112464a7e22ac66bc14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Record",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"value\": 19.5\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/records/5bf81112464a7e22ac66bc14",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"records",
+						"5bf81112464a7e22ac66bc14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Start / Stop",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"action\": \"1\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/configurations",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"configurations"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
