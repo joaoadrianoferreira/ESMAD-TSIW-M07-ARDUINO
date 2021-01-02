@@ -1,6 +1,6 @@
 # TSIW - Tecnologias e Sistemas de Informação para a Web
 
-Aplicação em Node.JS e Express.JS para demonstrar a criação de um Serviço Web REST. Aplicação demonstrativa para a unidade curricular Serviços e Interfaces para a Cloud do 3º Ano da Licenciatura em Tecnologias e Sistemas de Informação para a Web da ESMAD - IPP. 
+Serviço Web de uma Aplicação IoT usando Arduino. Aplicação demonstrativa para a unidade curricular Serviços e Interfaces para a Cloud do 3º Ano da Licenciatura em Tecnologias e Sistemas de Informação para a Web da ESMAD - IPP. 
 
 ## Requesitos: 
  - NodeJS; 
