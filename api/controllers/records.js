@@ -17,6 +17,14 @@ exports.create_record = function (req, res) {
   });
 };
 
+exports.create_record_mqtt = function (value) {
+  var new_record = new Record({value: value});
+  new_record.save(function (err) {
+    if (err)
+      console.log(err)
+  });
+};
+
 exports.list_record = function (req, res) {
   Record.findById(req.params.recordId, function (err, record) {
     if (err)
