@@ -1,9 +1,9 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
-const char* ssid = "Vodafone-048160";
-const char* password = "t6Vw9XqR5Y";
-const char* mqtt_server = "192.168.1.140";
+const char* ssid = "fdssdf";
+const char* password = "asdasd";
+const char* mqtt_server = "000.000.000.000";
 const char* mqtt_username = "teste";
 const char* mqtt_password = "teste";
 
