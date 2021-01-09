@@ -1,37 +1,66 @@
 #include <ESP8266WiFi.h>
-#include <ESP8266HTTPClient.h>
+#include <PubSubClient.h>
 
-const char* ssid = "dfsdfsfdf";
-const char* password = "afasdsssd";
+const char* ssid = "Vodafone-048160";
+const char* password = "t6Vw9XqR5Y";
+const char* mqtt_server = "192.168.1.140";
+const char* mqtt_username = "teste";
+const char* mqtt_password = "teste";
 
-WiFiClient client;
+WiFiClient espClient;
+PubSubClient client(espClient);
 
-void setup() {
-  Serial.begin(115200);
+void setup_wifi() {
+
+  delay(10);
   Serial.println();
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+
+  WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
+
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
   }
-  Serial.println("connected");   
-  delay(10);    
+
+  Serial.println("");
+  Serial.println("WiFi connected");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
 }
 
-void loop() { 
+void reconnect() {
+  while (!client.connected()) {
+    Serial.print("Attempting MQTT connection...");
+    String clientId = "ESP8266Client-";
+    clientId += String(random(0xffff), HEX);
+    if (client.connect(clientId.c_str(), mqtt_username, mqtt_password)) {
+      Serial.println("connected");
+    } else {
+      Serial.print("failed, rc=");
+      Serial.print(client.state());
+      Serial.println(" try again in 5 seconds");
+      delay(5000);
+    }
+  }
+}
+
+void setup() {
+  Serial.begin(115200);
+  setup_wifi();
+  client.setServer(mqtt_server, 1883);
+  //client.setCallback(callback);
+}
+
+void loop() {
+
+  if (!client.connected()) {
+    reconnect();
+  }
+  client.loop();
   int val_analog = analogRead(A0);
-  /*saveRecord(val_analog); */ 
-}
-
-void saveRecord(int sound) {
-    HTTPClient http; 
-    String data = "{\n\t\t\"value\" : \"";
-    data.concat(sound); 
-    data.concat("\"}");     
-    http.begin("https://sound-records.herokuapp.com/records", "94 FC F6 23 6C 37 D5 E7 92 78 3C 0B 5F AD 0C E4 9E FD 9E A8");
-    http.addHeader("Content-Type", "application/json");
-    int httpCode = http.POST(data);
-    String payload = http.getString(); 
-    delay(5000);
-    http.end(); 
+  client.publish("sound",  String(val_analog).c_str());
+  delay(5000); 
 }
