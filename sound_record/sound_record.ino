@@ -1,10 +1,8 @@
 #include <ESP8266WiFi.h>
-#include <Ticker.h>
 #include <ESP8266HTTPClient.h>
-Ticker flipper;
 
-const char* ssid = "sdfsdddf";
-const char* password = "sdadasd";
+const char* ssid = "dfsdfsfdf";
+const char* password = "afasdsssd";
 
 WiFiClient client;
 
