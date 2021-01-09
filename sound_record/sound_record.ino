@@ -6,8 +6,6 @@ Ticker flipper;
 const char* ssid = "sdfsdddf";
 const char* password = "sdadasd";
 
-const char* host = "www.google.com";
-
 WiFiClient client;
 
 void setup() {
@@ -20,40 +18,6 @@ void setup() {
   }
   Serial.println("connected");   
   delay(10);    
-}
-
-void function() {
-  
-  Serial.printf("\n[Connecting to %s ... ", host);
-  if (client.connect(host, 80))
-  {
-    Serial.println("connected]");
-
-    Serial.println("[Sending a request]");
-    client.print(String("GET /") + " HTTP/1.1\r\n" +
-                 "Host: " + host + "\r\n" +
-                 "Connection: close\r\n" +
-                 "\r\n"
-                );
-
-    Serial.println("[Response:]");
-    while (client.connected() || client.available())
-    {
-      if (client.available())
-      {
-        String line = client.readStringUntil('\n');
-        Serial.println(line);
-      }
-    }
-    client.stop();
-    Serial.println("\n[Disconnected]");
-  }
-  else
-  {
-    Serial.println("connection failed!]");
-    client.stop();
-  }
-  delay(5000);
 }
 
 void loop() { 
