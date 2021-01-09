@@ -20,7 +20,7 @@ void setup() {
 
 void loop() { 
   int val_analog = analogRead(A0);
-  saveRecord(val_analog);      
+  /*saveRecord(val_analog); */ 
 }
 
 void saveRecord(int sound) {
