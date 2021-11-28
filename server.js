@@ -7,7 +7,7 @@ var records = require('./api/routes/records');
 var mqtt = require('mqtt')
 var controller = require('./api/controllers/records')
 
-mongoose.connect('mongodb+srv://tsiw:GAa8xvmV3eKrVa8C@cluster0.b0vmz.mongodb.net/TSIW?retryWrites=true&w=majority',  { useNewUrlParser: true }); 
+mongoose.connect('mongodb+srv://tsiw:GAa8xvmV3eKrVa8C@cluster0.b0vmz.mongodb.net/TSIW?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
 
 var client  = mqtt.connect('mqtt://192.168.1.140', { username: 'teste', password: 'teste' })
  
