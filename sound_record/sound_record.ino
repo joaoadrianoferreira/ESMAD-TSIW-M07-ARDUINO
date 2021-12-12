@@ -1,10 +1,10 @@
 #include <ESP8266WiFi.h>
+#include <Ticker.h>
 #include <ESP8266HTTPClient.h>
+Ticker flipper;
 
-const char* ssid = "dfsdfsfdf";
-const char* password = "afasdsssd";
-
-WiFiClient client;
+const char* ssid = "xxxxxxx";
+const char* password = "xxxxxxxx";
 
 void setup() {
   Serial.begin(115200);
@@ -24,11 +24,13 @@ void loop() {
 }
 
 void saveRecord(int sound) {
+    Serial.print(sound);
+    Serial.println();
     HTTPClient http; 
     String data = "{\n\t\t\"value\" : \"";
     data.concat(sound); 
     data.concat("\"}");     
-    http.begin("https://sound-records.herokuapp.com/records", "94 FC F6 23 6C 37 D5 E7 92 78 3C 0B 5F AD 0C E4 9E FD 9E A8");
+    http.begin("https://sound-records.herokuapp.com/records", "B8 B9 B1 3F 37 1F 2B 1B 38 E8 A7 72 8E 29 12 07 1E 1F 98 E8");
     http.addHeader("Content-Type", "application/json");
     int httpCode = http.POST(data);
     String payload = http.getString(); 
